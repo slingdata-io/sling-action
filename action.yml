@@ -29,3 +29,7 @@ runs:
     SLING_LOADED_AT_COLUMN: true
   args:
     - ${{ inputs.command }}
+
+branding:
+  color: blue
+  icon: zap
