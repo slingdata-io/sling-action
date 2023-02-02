@@ -13,6 +13,7 @@ jobs:
     env:
       TEST_PG_SLING_MASTER: ${{ secrets.TEST_PG_SLING_MASTER }}
       DEMO_POSTGRES: ${{ secrets.DEMO_POSTGRES }}
+      SQLITE: ${{ secrets.SQLITE }}
 
     steps:
       - uses: actions/checkout@v2
