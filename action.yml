@@ -21,7 +21,8 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'slingdata/sling:${{ inputs.version }}'
+  # image: 'slingdata/sling:${{ inputs.version }}'
+  image: slingdata/sling
   env:
     SLING_PROJECT: ${{ inputs.project_id }}
     SLING_API_KEY: ${{ inputs.api_key }}
