@@ -21,15 +21,12 @@ inputs:
 
 runs:
   using: 'docker'
-  # image: 'slingdata/sling:${{ inputs.version }}'
-  image: slingdata/sling
+  image: 'Dockerfile'
   env:
     SLING_PROJECT: ${{ inputs.project_id }}
     SLING_API_KEY: ${{ inputs.api_key }}
     SLING_POOL: true
     SLING_LOADED_AT_COLUMN: true
-  args:
-    - ${{ inputs.command }}
 
 branding:
   color: blue
