@@ -5,14 +5,12 @@ export SLING_API_KEY=$INPUT_API_KEY
 export SLING_POOL=true
 export SLING_LOADED_AT_COLUMN=true
 
-env > /tmp/.env
+cp -r $GITHUB_WORKSPACE /tmp/work
 
-echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
+env > /tmp/work/.env
 
-echo 'step-1'
+ls -l /tmp/work
 
-exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" -v $GITHUB_WORKSPACE:/work -w /work --env-file /tmp/.env --entrypoint=sh slingdata/sling:$INPUT_VERSION -c "ls -l /work"
+echo ' >>> step >>>'
 
-echo 'step-2'
-
-exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" -v $GITHUB_WORKSPACE:/work -w /work --env-file /tmp/.env slingdata/sling:$INPUT_VERSION "$INPUT_COMMAND"
+exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" -v /tmp/work:/work -w /work --env-file /tmp/work/.env --entrypoint=sh slingdata/sling:$INPUT_VERSION -c "ls -l /work"
