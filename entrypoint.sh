@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 export SLING_PROJECT=$INPUT_PROJECT_ID
 export SLING_API_KEY=$INPUT_API_KEY
@@ -7,6 +8,7 @@ export SLING_LOADED_AT_COLUMN=true
 
 if [ "$INPUT_VERSION" != "latest" ]; then
   # download sling version
+  echo "Downloading version $INPUT_VERSION"
   wget -q https://ocral.nyc3.cdn.digitaloceanspaces.com/slingdata.io/dist/$INPUT_VERSION/sling-linux
   mv sling-linux /usr/local/bin/sling
   chmod 755 /usr/local/bin/sling
