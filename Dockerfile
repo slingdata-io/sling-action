@@ -1,6 +1,4 @@
-FROM docker:20.10
-
-RUN apk add bash
+FROM slingdata/sling:latest
 
 COPY entrypoint.sh /entrypoint.sh
 

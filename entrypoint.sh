@@ -5,16 +5,15 @@ export SLING_API_KEY=$INPUT_API_KEY
 export SLING_POOL=true
 export SLING_LOADED_AT_COLUMN=true
 
-cp -r $GITHUB_WORKSPACE /tmp/work
+if [ "$INPUT_VERSION" != "latest" ]; then
+  # download sling veresion
+  wget -q https://ocral.nyc3.cdn.digitaloceanspaces.com/slingdata.io/dist/$INPUT_VERSION/sling-linux
+  mv sling-linux /usr/local/bin/sling
+  chmod 755 /usr/local/bin/sling
+fi
 
-env > /tmp/work/.env
+chmod -R 777 $GITHUB_WORKSPACE
+cd $GITHUB_WORKSPACE
 
-ls -l /tmp/work
-
-chmod -R 777 /tmp/work
-
-docker context use default
-
-echo ' >>> step >>>'
-
-exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" --privileged -v /tmp/work/:/work -w /work --env-file /tmp/work/.env --entrypoint=sh slingdata/sling:$INPUT_VERSION -c "ls -l /work"
+# run sling command
+sh -c "sling $INPUT_COMMAND"
