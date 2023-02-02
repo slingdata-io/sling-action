@@ -19,15 +19,10 @@ inputs:
     description: 'The Sling Cloud API Key'
     required: false
   workspace:
-    description: 'The root folder for work'
+    description: 'The root folder for github workspace'
     required: false
     default: ${{ github.workspace }}
-  docker_network:
-    description: 'Docker Network ID'
-    default: ${{ job.container.network }}
-    required: false
     
-
 runs:
   using: 'docker'
   image: 'Dockerfile'
