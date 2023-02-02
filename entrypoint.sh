@@ -15,4 +15,4 @@ exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" -v $GITHUB_WORK
 
 echo 'step-2'
 
-exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" -v $GITHUB_WORKSPACE:/work -w /work --env-file /tmp/.env slingdata/sling:$INPUT_VERSION -c "$INPUT_COMMAND"
+exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" -v $GITHUB_WORKSPACE:/work -w /work --env-file /tmp/.env slingdata/sling:$INPUT_VERSION "$INPUT_COMMAND"
