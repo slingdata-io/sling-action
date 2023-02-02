@@ -7,10 +7,13 @@ export SLING_LOADED_AT_COLUMN=true
 
 cp -r $GITHUB_WORKSPACE /tmp/work
 
+echo "INPUT_PROJECT_ID=$INPUT_PROJECT_ID"
+echo "INPUT_DOCKER_NETWORK=$INPUT_DOCKER_NETWORK"
+
 env > /tmp/work/.env
 
 ls -l /tmp/work
 
 echo ' >>> step >>>'
 
-exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" --network $INPUT_DOCKER_NETWORK -v /tmp/work:/work -w /work --env-file /tmp/work/.env --entrypoint=sh slingdata/sling:$INPUT_VERSION -c "ls -l /work"
+exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" --network $INPUT_DOCKER_NETWORK -v /tmp/work:/sling-work -w /sling-work --env-file /tmp/work/.env --entrypoint=sh slingdata/sling:$INPUT_VERSION -c "ls -l /"
