@@ -13,6 +13,8 @@ ls -l /tmp/work
 
 chmod -R 777 /tmp/work
 
+docker context use default
+
 echo ' >>> step >>>'
 
 exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" --privileged -v /tmp/work/:/work -w /work --env-file /tmp/work/.env --entrypoint=sh slingdata/sling:$INPUT_VERSION -c "ls -l /work"
