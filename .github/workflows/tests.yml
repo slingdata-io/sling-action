@@ -10,6 +10,10 @@ on:
 jobs:
   actions-test:
     runs-on: ubuntu-latest
+    env:
+      TEST_PG_SLING_MASTER: ${{ secrets.TEST_PG_SLING_MASTER }}
+      DEMO_POSTGRES: ${{ secrets.DEMO_POSTGRES }}
+
     steps:
       - uses: actions/checkout@v2
       
