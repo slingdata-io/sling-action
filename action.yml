@@ -22,6 +22,10 @@ inputs:
     description: 'The root folder for work'
     required: false
     default: ${{ github.workspace }}
+  docker_network:
+    description: 'Docker Network ID'
+    default: ${{ job.container.network }}
+    required: false
     
 
 runs:
