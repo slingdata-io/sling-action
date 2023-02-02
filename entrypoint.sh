@@ -9,6 +9,10 @@ env > /tmp/.env
 
 echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
 
-ls -l $GITHUB_WORKSPACE
+echo 'step-1'
 
-exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" -v $GITHUB_WORKSPACE:/work -w /work --env-file /tmp/.env --entrypoint=sh slingdata/sling:$INPUT_VERSION -c "cd /work && ls -l && sling $INPUT_COMMAND"
+exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" -v $GITHUB_WORKSPACE:/work -w /work --env-file /tmp/.env --entrypoint=sh slingdata/sling:$INPUT_VERSION -c "ls -l /work"
+
+echo 'step-2'
+
+exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" -v $GITHUB_WORKSPACE:/work -w /work --env-file /tmp/.env slingdata/sling:$INPUT_VERSION -c "$INPUT_COMMAND"
