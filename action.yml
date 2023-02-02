@@ -25,8 +25,7 @@ runs:
   env:
     SLING_PROJECT: ${{ inputs.project_id }}
     SLING_API_KEY: ${{ inputs.api_key }}
-    SLING_POOL: true
-    SLING_LOADED_AT_COLUMN: true
+    GITHUB_WORKSPACE: ${{ github.workspace }}
 
 branding:
   color: blue
