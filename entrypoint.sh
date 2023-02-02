@@ -6,7 +6,7 @@ export SLING_POOL=true
 export SLING_LOADED_AT_COLUMN=true
 
 if [ "$INPUT_VERSION" != "latest" ]; then
-  # download sling veresion
+  # download sling version
   wget -q https://ocral.nyc3.cdn.digitaloceanspaces.com/slingdata.io/dist/$INPUT_VERSION/sling-linux
   mv sling-linux /usr/local/bin/sling
   chmod 755 /usr/local/bin/sling

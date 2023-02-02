@@ -27,3 +27,9 @@ jobs:
         uses: ./
         with:
           command: run -r test_replication.yml
+
+      - name: Test Old version
+        uses: ./
+        with:
+          command: conns list
+          version: 0.87.36
