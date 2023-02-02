@@ -41,7 +41,7 @@ streams:
 
 ```yaml
 steps:
-  - uses: slingdata-io/sling-action
+  - uses: slingdata-io/sling-action@v1
     with:
       command: run -r my-replication.yaml
     env:
