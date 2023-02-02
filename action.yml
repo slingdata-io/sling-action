@@ -1,20 +1,31 @@
 # action.yml
 name: 'Sling Run Action'
+author: Fritz Larco
 description: 'Run a Sling command from Github Actions'
+
 inputs:
   version:
     description: 'Sling version to use.'
     required: false
     default: latest
   command:
-    description: 'Command to run'
+    description: 'Command to run, e.g. "run -r replication.yaml"'
     required: true
   project_id:
     description: 'The Sling Cloud project id'
     required: false
+    default: ${{ github.repository_id }}
   api_key:
     description: 'The Sling Cloud API Key'
     required: false
+
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'slingdata/sling:${{ inputs.version }}'
+  env:
+    SLING_PROJECT: ${{ inputs.project_id }}
+    SLING_API_KEY: ${{ inputs.api_key }}
+    SLING_POOL: true
+    SLING_LOADED_AT_COLUMN: true
+  args:
+    - ${{ inputs.command }}
