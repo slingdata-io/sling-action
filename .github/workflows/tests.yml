@@ -1,0 +1,19 @@
+name: Test Sling Action
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  actions-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: List Connections
+        uses: ./
+        with:
+          command: conns list
