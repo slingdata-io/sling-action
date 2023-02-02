@@ -25,4 +25,4 @@ jobs:
       - name: Run Replication
         uses: ./
         with:
-          command: run -r test_replicaiton.yml
+          command: run -r test_replication.yml
