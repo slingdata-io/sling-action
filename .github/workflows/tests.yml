@@ -21,3 +21,8 @@ jobs:
         uses: ./
         with:
           command: conns list
+        
+      - name: Run Replication
+        uses: ./
+        with:
+          command: run -r test_replicaiton.yml
