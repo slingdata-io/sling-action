@@ -1,0 +1,20 @@
+# action.yml
+name: 'Sling Run Action'
+description: 'Run a Sling command from Github Actions'
+inputs:
+  version:
+    description: 'Sling version to use.'
+    required: false
+    default: latest
+  command:
+    description: 'Command to run'
+    required: true
+  project_id:
+    description: 'The Sling Cloud project id'
+    required: false
+  api_key:
+    description: 'The Sling Cloud API Key'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
