@@ -18,6 +18,11 @@ inputs:
   api_key:
     description: 'The Sling Cloud API Key'
     required: false
+  workspace:
+    description: 'The root folder for work'
+    required: false
+    default: ${{ github.workspace }}
+    
 
 runs:
   using: 'docker'
@@ -25,7 +30,7 @@ runs:
   env:
     SLING_PROJECT: ${{ inputs.project_id }}
     SLING_API_KEY: ${{ inputs.api_key }}
-    GITHUB_WORKSPACE: ${{ github.workspace }}
+    GITHUB_WORKSPACE: ${{ inputs.workspace }}
 
 branding:
   color: blue
