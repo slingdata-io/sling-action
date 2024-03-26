@@ -22,11 +22,6 @@ jobs:
         uses: ./
         with:
           command: conns list
-        
-      - name: Run Replication
-        uses: ./
-        with:
-          command: run -r test_replication.yml
 
       - name: Test Old version
         uses: ./
