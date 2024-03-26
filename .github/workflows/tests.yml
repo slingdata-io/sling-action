@@ -27,4 +27,4 @@ jobs:
         uses: ./
         with:
           command: conns list
-          version: 0.87.36
+          version: 1.0.8
