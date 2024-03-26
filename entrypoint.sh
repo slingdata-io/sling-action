@@ -3,8 +3,6 @@ set -e
 
 export SLING_PROJECT=$INPUT_PROJECT_ID
 export SLING_API_KEY=$INPUT_API_KEY
-export SLING_POOL=true
-export SLING_LOADED_AT_COLUMN=true
 
 if [ "$INPUT_VERSION" != "latest" ]; then
   # download sling version
