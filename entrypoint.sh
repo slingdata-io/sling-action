@@ -15,7 +15,7 @@ if [ "$INPUT_VERSION" != "latest" ]; then
   chmod 755 /usr/local/bin/sling
 fi
 
-chmod -R 777 $GITHUB_WORKSPACE
+# chmod -R 777 $GITHUB_WORKSPACE
 cd $GITHUB_WORKSPACE
 
 # run sling command
